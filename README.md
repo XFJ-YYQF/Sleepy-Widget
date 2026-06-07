@@ -1,4 +1,4 @@
-# Sleepy ESP8266 Widget
+# Sleepy Widget
 
 基于 ESP8266 的 [sleepy-project/sleepy](https://github.com/sleepy-project) 硬件状态指示器。通过 0.96 寸 OLED 屏幕实时显示当前状态，支持按键切换、网页配置、GPIO 电平联动和自动息屏。
 
