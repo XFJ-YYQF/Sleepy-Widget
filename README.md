@@ -35,6 +35,7 @@
 | 24k 电阻（可选） | PDD | 0.06¥ |
 
 元器件不多，应该不需要 BOM 表
+
 支持[嘉立创](https://www.jlc.com)，建议在[立创商城](https://www.szlcsc.com/)购买元器件
 
 ---
