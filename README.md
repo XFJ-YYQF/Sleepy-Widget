@@ -1,8 +1,10 @@
 # Sleepy Widget
 
-基于 ESP8266 的 [sleepy-project/sleepy](https://github.com/sleepy-project) 硬件状态指示器。通过 0.96 寸 OLED 屏幕实时显示当前状态，支持按键切换、网页配置、GPIO 电平联动和自动息屏。
+基于 ESP8266 的 [sleepy-project/sleepy](https://github.com/sleepy-project) 硬件状态指示器。通过 OLED 屏幕实时显示当前状态，支持按键切换、网页配置、GPIO 电平联动和自动息屏。
 
-**PCB 及固件将在测试完毕后逐个开源**
+~~PCB 及固件将在测试完毕后逐个开源~~
+
+**固件感觉差不多了，PCB还没打样回来，预计还需要修改一次**
 
 ---
 
@@ -37,6 +39,8 @@
 元器件不多，应该不需要 BOM 表
 
 支持[嘉立创](https://www.jlc.com)，建议在[立创商城](https://www.szlcsc.com/)购买元器件
+
+**注意：打样PCB请选择 1mm 板厚！！！**
 
 ---
 
@@ -242,8 +246,7 @@ A: 经过测试，在连接米家模块后测量到的电压不稳，不过我�
 ## 致谢
 
 - **[sleepy-project/sleepy](https://github.com/sleepy-project)** — 状态服务器
-- **[Claude](https://claude.ai)** — 代码编写协助
-- **[DeepSeek](https://chat.deepseek.com)** — 代码编写协助
+- **[Claude](https://claude.ai)** & **[DeepSeek](https://deepseek.com)** — 代码编写协助
 - **[MinecraftXFJ](https://www.minecraftxfj.top)** — 硬件设计与集成
 
 ---
