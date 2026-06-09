@@ -244,7 +244,7 @@ A: 经过测试，在连接米家模块后测量到的电压不稳，不过我�
 ---
 
 ## 代码参考
-- **[《如何优雅地实现每 5 秒轮询请求？》]([https://github.com/sleepy-project](https://www.jlc-bbs.com/platform/a/1474359))**
+- **[《如何优雅地实现每 5 秒轮询请求？》]((https://www.jlc-bbs.com/platform/a/1474359)**
 
 
 ## 致谢
