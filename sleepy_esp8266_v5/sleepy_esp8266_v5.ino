@@ -50,7 +50,9 @@ bool   hasErr = false, isAP = false;
 
 int    setPend   = -1;
 ulong  lastFetch = 0;
-const ulong FETCH_MS = 15000;
+const ulong FETCH_MS       = 15000;  // 亮屏轮询间隔
+const ulong FETCH_MS_SLEEP = 60000;  // 息屏轮询间隔
+const ulong FETCH_MS_ERR   = 30000;  // 出错后重试间隔
 
 // ── 息屏 ───────────────────────────────────────────────────
 ulong lastActive = 0;
@@ -503,7 +505,11 @@ inline bool btnActive(bool raw) {
 
 void wakeScreen() {
   lastActive = millis();
-  if (!screenOn) { screenOn = true; u8g2.setPowerSave(0); }
+  if (!screenOn) {
+    screenOn   = true;
+    lastFetch  = 0;
+    u8g2.setPowerSave(0);
+  }
 }
 
 void fireTrigger() {
@@ -580,6 +586,12 @@ void rstPinHandle() {
 // ══════════════════════════════════════════════════════════
 // 息屏
 // ══════════════════════════════════════════════════════════
+ulong fetchInterval() {
+  if (!screenOn) return FETCH_MS_SLEEP;
+  if (hasErr)    return FETCH_MS_ERR;
+  return FETCH_MS;
+}
+
 void checkScreenTimeout() {
   if (!screenOn || isAP) return;
   if (hasErr || WiFi.status() != WL_CONNECTED) return;
@@ -697,13 +709,13 @@ void loop() {
   }
 
   // 定时刷新
-  if (millis() - lastFetch >= FETCH_MS) {
-    lastFetch = millis();
+  if (millis() - lastFetch >= fetchInterval()) {
     if (slCnt == 0) apiList();
-    int prevId = curId;
-    bool prevErr = hasErr; 
+    int  prevId  = curId;
+    bool prevErr = hasErr;
     hasErr = !apiQuery();
-    if (curId != prevId) wakeScreen();
+    lastFetch = millis();
+    if (curId != prevId || (prevErr && !hasErr)) wakeScreen();
     if (screenOn) oledDraw();
   }
 }
