@@ -2,9 +2,7 @@
 
 基于 ESP8266 的 [sleepy-project/sleepy](https://github.com/sleepy-project) 硬件状态指示器。通过 OLED 屏幕实时显示当前状态，支持按键切换、网页配置、GPIO 电平联动和自动息屏。
 
-~~PCB 及固件将在测试完毕后逐个开源~~
-
-**固件感觉差不多了，PCB还没打样回来，预计还需要修改一次**
+**打v0.4版本的PCB哈**
 
 ---
 
